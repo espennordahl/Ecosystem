@@ -107,8 +107,8 @@ class Environment(object):
             if var.name not in self.defined_variables:
                 for dependency in var.dependencies:
                     self.get_var(self.variables.get(dependency, None))
-                self.value += 'setenv {0} {1}'.format(var.name, var.env)
-                # self.value += 'export {0}={1}'.format(var.name, var.env)
+                # self.value += 'setenv {0} {1}'.format(var.name, var.env)
+                self.value += 'export {0}={1}'.format(var.name, var.env)
                 if os.getenv(var.name):
                     if not self.force and not var.strict:
                         if var.env != '':
